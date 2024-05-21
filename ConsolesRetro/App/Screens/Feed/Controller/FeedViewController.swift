@@ -20,7 +20,7 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavBar()
-        setDelegatesAndDatasources()
+        setDelegatesAndDataSources()
         handleStates()
         viewModel.loadDataConsoles()
     }
@@ -30,7 +30,7 @@ class FeedViewController: UIViewController {
         view.backgroundColor = .systemBackground
     }
     
-    func setDelegatesAndDatasources() {
+    func setDelegatesAndDataSources() {
         feedView.tableView.delegate = self
         feedView.tableView.dataSource = self
     }
@@ -86,5 +86,8 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let feedConsole = viewModel.cellForRowAt(indexPath: indexPath)
+        let detailsVC = DetailsViewController()
+        navigationController?.pushViewController(detailsVC, animated: true)
     }
 }
