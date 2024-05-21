@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2EB31A32D7976DF1778860F0 /* Pods_ConsolesRetro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C15BD7D6E5E77BC624F6478C /* Pods_ConsolesRetro.framework */; };
 		920F62882BFCEC8C0011B50B /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920F62872BFCEC8C0011B50B /* Bindable.swift */; };
 		920F628A2BFCECD20011B50B /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920F62892BFCECD20011B50B /* FeedViewModel.swift */; };
 		920F628C2BFCF8340011B50B /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920F628B2BFCF8340011B50B /* FeedView.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C06426F3590C4703E25A500 /* Pods-ConsolesRetro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConsolesRetro.release.xcconfig"; path = "Target Support Files/Pods-ConsolesRetro/Pods-ConsolesRetro.release.xcconfig"; sourceTree = "<group>"; };
 		920F62872BFCEC8C0011B50B /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
 		920F62892BFCECD20011B50B /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		920F628B2BFCF8340011B50B /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
@@ -36,6 +38,8 @@
 		9222CA0B2BFCE9C300040C15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9222CA0E2BFCE9C300040C15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9222CA102BFCE9C300040C15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C15BD7D6E5E77BC624F6478C /* Pods_ConsolesRetro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConsolesRetro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD64FC56E5B77594E551E099 /* Pods-ConsolesRetro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConsolesRetro.debug.xcconfig"; path = "Target Support Files/Pods-ConsolesRetro/Pods-ConsolesRetro.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,12 +47,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EB31A32D7976DF1778860F0 /* Pods_ConsolesRetro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		73CACE79512D9ED89BFED330 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C15BD7D6E5E77BC624F6478C /* Pods_ConsolesRetro.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		920F62852BFCEA5F0011B50B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +158,8 @@
 			children = (
 				9222CA012BFCE9C200040C15 /* ConsolesRetro */,
 				9222CA002BFCE9C200040C15 /* Products */,
+				AE1F469F353686ED9385B7E1 /* Pods */,
+				73CACE79512D9ED89BFED330 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -165,6 +180,15 @@
 			path = ConsolesRetro;
 			sourceTree = "<group>";
 		};
+		AE1F469F353686ED9385B7E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DD64FC56E5B77594E551E099 /* Pods-ConsolesRetro.debug.xcconfig */,
+				5C06426F3590C4703E25A500 /* Pods-ConsolesRetro.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -172,9 +196,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9222CA132BFCE9C300040C15 /* Build configuration list for PBXNativeTarget "ConsolesRetro" */;
 			buildPhases = (
+				E5070C478BE2F6F7D8734FDE /* [CP] Check Pods Manifest.lock */,
 				9222C9FB2BFCE9C200040C15 /* Sources */,
 				9222C9FC2BFCE9C200040C15 /* Frameworks */,
 				9222C9FD2BFCE9C200040C15 /* Resources */,
+				1FF30B64D388AD8B55D0112B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -229,6 +255,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1FF30B64D388AD8B55D0112B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ConsolesRetro/Pods-ConsolesRetro-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ConsolesRetro/Pods-ConsolesRetro-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ConsolesRetro/Pods-ConsolesRetro-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5070C478BE2F6F7D8734FDE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ConsolesRetro-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9222C9FB2BFCE9C200040C15 /* Sources */ = {
@@ -299,7 +367,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -362,7 +430,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -383,6 +451,7 @@
 		};
 		9222CA142BFCE9C300040C15 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD64FC56E5B77594E551E099 /* Pods-ConsolesRetro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -410,6 +479,7 @@
 		};
 		9222CA152BFCE9C300040C15 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C06426F3590C4703E25A500 /* Pods-ConsolesRetro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

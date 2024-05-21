@@ -16,16 +16,16 @@ class Service: ServiceProtocol {
     var dataTask: URLSessionDataTask?
     
     func getConsoles(onSuccess: @escaping([FeedConsole]) -> Void, onError: @escaping(Error) -> Void) {
-        guard let url = URL(string: "https://run.mocky.io/v3/d3abb408-31b1-45ef-a59c-6c26bb682048") else { return }
+        guard let url = URL(string: "https://run.mocky.io/v3/8159b31d-2bfe-4105-9484-f4e3006660e4") else { return }
         
         dataTask = URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
-            if let response = response as? HTTPURLResponse {
-                print("DEBUG: Status Code.. \(response.statusCode)")
-            }
-            
-            if let data = data {
+            DispatchQueue.main.async {
+                if let response = response as? HTTPURLResponse {
+                    print("DEBUG: Status Code.. \(response.statusCode)")
+                }
+                
                 do {
-                    let consolesResponse = try JSONDecoder().decode(ConsolesResponse.self, from: data)
+                    let consolesResponse = try JSONDecoder().decode(ConsolesResponse.self, from: data ?? Data())
                     var feedConsole: [FeedConsole] = []
                     
                     for console in consolesResponse.consoles {
@@ -42,6 +42,10 @@ class Service: ServiceProtocol {
                         let feedConsoleInstance = FeedConsole(name: console.name, image: console.image, jogos: feedJogos)
                         feedConsole.append(feedConsoleInstance)
                     }
+                    
+                    feedConsole = feedConsole.sorted { (console1, console2) -> Bool in
+                        console1.name.caseInsensitiveCompare(console2.name) == .orderedAscending
+                    }
                     onSuccess(feedConsole)
                     print("DEBUG: Imagens dos CONSOLES.. \(feedConsole)")
                 } catch {
@@ -50,5 +54,6 @@ class Service: ServiceProtocol {
                 }
             }
         })
+        dataTask?.resume()
     }
 }

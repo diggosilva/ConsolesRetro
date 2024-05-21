@@ -61,10 +61,11 @@ class FeedViewController: UIViewController {
         let alert = UIAlertController(title: "Opa, ocorreu um erro!", message: "Tentar novamente?", preferredStyle: .alert)
         
         let ok = UIAlertAction(title: "Sim", style: .default) { action in
-            print("Tentou novamente")
+            self.viewModel.loadDataConsoles()
         }
         let nok = UIAlertAction(title: "Não", style: .cancel) { action in
-            print("Desistiu de tentar")
+            self.feedView.spinner.stopAnimating()
+            self.feedView.errorLabel.isHidden = false
         }
         alert.addAction(ok)
         alert.addAction(nok)
@@ -74,12 +75,16 @@ class FeedViewController: UIViewController {
 
 extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return viewModel.numberOfRowsInSection()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FeedCell.identifier, for: indexPath) as? FeedCell else { return UITableViewCell() }
-//        cell.textLabel?.text = "TESTE GAME"
+        cell.configure(feedConsole: viewModel.cellForRowAt(indexPath: indexPath))
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

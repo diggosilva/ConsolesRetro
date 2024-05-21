@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class FeedCell: UITableViewCell {
     static let identifier = "FeedCell"
@@ -13,10 +14,9 @@ class FeedCell: UITableViewCell {
     lazy var consoleImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleAspectFill
-        image.image = UIImage(systemName: "person.fill")
-        image.backgroundColor = .lightGray
-        image.layer.cornerRadius = 40
+        image.contentMode = .scaleAspectFit
+        image.backgroundColor = .systemGray5
+        image.layer.cornerRadius = 10
         image.clipsToBounds = true
         return image
     }()
@@ -24,8 +24,8 @@ class FeedCell: UITableViewCell {
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "NOME DO CONSOLE"
         label.font = .italicSystemFont(ofSize: 20)
+        label.textAlignment = .center
         return label
     }()
     
@@ -36,6 +36,12 @@ class FeedCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(feedConsole: FeedConsole) {
+        guard let url = URL(string: feedConsole.image) else { return }
+        consoleImage.sd_setImage(with: url)
+        nameLabel.text = feedConsole.name
     }
     
     private func setupView() {
@@ -50,15 +56,15 @@ class FeedCell: UITableViewCell {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
+            consoleImage.centerXAnchor.constraint(equalTo: centerXAnchor),
             consoleImage.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            consoleImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            consoleImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-            consoleImage.widthAnchor.constraint(equalToConstant: 80),
-            consoleImage.heightAnchor.constraint(equalTo: consoleImage.widthAnchor),
+            consoleImage.widthAnchor.constraint(equalToConstant: 200),
+            consoleImage.heightAnchor.constraint(equalToConstant: 80),
             
-            nameLabel.centerYAnchor.constraint(equalTo: consoleImage.centerYAnchor),
-            nameLabel.leadingAnchor.constraint(equalTo: consoleImage.trailingAnchor, constant: 10),
-            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
+            nameLabel.topAnchor.constraint(equalTo: consoleImage.bottomAnchor, constant: 5),
+            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
         ])
     }
 }
