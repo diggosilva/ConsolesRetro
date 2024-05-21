@@ -9,28 +9,30 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
+    let feedView = FeedView()
     let viewModel = FeedViewModel()
     
-    lazy var label: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Carregando..."
-        label.textColor = .systemRed
-        return label
-    }()
+    override func loadView() {
+        super.loadView()
+        view = feedView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        
-        view.addSubview(label)
-        
-        NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        ])
+        setNavBar()
+        setDelegatesAndDatasources()
         handleStates()
         viewModel.loadData()
+    }
+    
+    func setNavBar() {
+        title = "Consoles"
+        view.backgroundColor = .systemBackground
+    }
+    
+    func setDelegatesAndDatasources() {
+        feedView.tableView.delegate = self
+        feedView.tableView.dataSource = self
     }
     
     func handleStates() {
@@ -47,16 +49,37 @@ class FeedViewController: UIViewController {
     }
     
     private func showLoadingState() {
-        
+        feedView.removeFromSuperview()
     }
     
     private func showLoadedState() {
-        label.textColor = .systemGreen
-        label.text = viewModel.newLabel
+        feedView.spinner.stopAnimating()
+        feedView.tableView.reloadData()
     }
     
     private func showErrorState() {
+        let alert = UIAlertController(title: "Opa, ocorreu um erro!", message: "Tentar novamente?", preferredStyle: .alert)
         
+        let ok = UIAlertAction(title: "Sim", style: .default) { action in
+            print("Tentou novamente")
+        }
+        let nok = UIAlertAction(title: "Não", style: .cancel) { action in
+            print("Desistiu de tentar")
+        }
+        alert.addAction(ok)
+        alert.addAction(nok)
+        present(alert, animated: true)
     }
+}
 
+extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = "TESTE GAME"
+        return cell
+    }
 }
