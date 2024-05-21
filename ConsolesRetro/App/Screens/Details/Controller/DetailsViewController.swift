@@ -10,6 +10,16 @@ import UIKit
 class DetailsViewController: UIViewController {
     
     let detailsView = DetailsView()
+    let viewModel: DetailsViewModelProtocol
+    
+    init(feedConsole: FeedConsole) {
+        self.viewModel = DetailsViewModel(feedConsole: feedConsole)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         super.loadView()
