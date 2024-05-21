@@ -22,7 +22,7 @@ class FeedViewController: UIViewController {
         setNavBar()
         setDelegatesAndDatasources()
         handleStates()
-        viewModel.loadData()
+        viewModel.loadDataConsoles()
     }
     
     func setNavBar() {
