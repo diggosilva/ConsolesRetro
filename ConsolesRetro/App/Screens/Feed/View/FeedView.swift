@@ -18,7 +18,8 @@ class FeedView: UIView {
     lazy var tableView: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.register(FeedCell.self, forCellReuseIdentifier: FeedCell.identifier)
+        table.separatorInset = .init(top: 0, left: 100, bottom: 0, right: 0)
         return table
     }()
     
