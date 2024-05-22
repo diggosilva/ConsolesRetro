@@ -33,7 +33,7 @@ class DetailsViewController: UIViewController {
     }
     
     func setNavBar() {
-        title = "Consoles Retro"
+        title = "Jogos"
         view.backgroundColor = .systemBackground
     }
     
@@ -41,17 +41,17 @@ class DetailsViewController: UIViewController {
         detailsView.tableView.delegate = self
         detailsView.tableView.dataSource = self
     }
-    
 }
 
 extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return viewModel.numberOfRowsInSection()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "JOGOS AQUI"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailsCell.identifier, for: indexPath) as? DetailsCell else { return UITableViewCell() }
+        cell.configure(jogo: viewModel.cellForRowAt(cellForRowAt: indexPath))
+        tableView.reloadData()
         return cell
     }
 }

@@ -11,7 +11,7 @@ class DetailsView: UIView {
     lazy var tableView: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.register(DetailsCell.self, forCellReuseIdentifier: DetailsCell.identifier)
         table.separatorInset = .init(top: 0, left: 0, bottom: 0, right: 0)
         return table
     }()
