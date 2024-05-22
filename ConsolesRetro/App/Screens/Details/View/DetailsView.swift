@@ -13,6 +13,7 @@ class DetailsView: UIView {
         table.translatesAutoresizingMaskIntoConstraints = false
         table.register(DetailsCell.self, forCellReuseIdentifier: DetailsCell.identifier)
         table.separatorInset = .init(top: 0, left: 0, bottom: 0, right: 0)
+        table.backgroundColor = .secondarySystemFill
         return table
     }()
     

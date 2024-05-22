@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DetailsCell: UITableViewCell {
     static let identifier = "DetailsCell"
@@ -14,7 +15,6 @@ class DetailsCell: UITableViewCell {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFill
-        image.image = UIImage(systemName: "house.fill")
         image.layer.cornerRadius = 10
         image.clipsToBounds = true
         return image
@@ -23,18 +23,17 @@ class DetailsCell: UITableViewCell {
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Nome do Game"
-        label.font = .systemFont(ofSize: 20, weight: .semibold)
+        label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
         return label
     }()
     
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Descrição do jogo Descrição do jogo Descrição do jogo Descrição"
         label.numberOfLines = 0
         label.textColor = .secondaryLabel
-        label.font = .systemFont(ofSize: 18, weight: .medium)
+        label.font = .systemFont(ofSize: 14, weight: .medium)
         return label
     }()
     
@@ -57,6 +56,8 @@ class DetailsCell: UITableViewCell {
     }
     
     func configure(jogo: Jogo) {
+        guard let url = URL(string: jogo.image) else { return }
+        coverImage.sd_setImage(with: url)
         nameLabel.text = jogo.name
         descriptionLabel.text = jogo.description
     }
@@ -78,10 +79,10 @@ class DetailsCell: UITableViewCell {
             coverImage.widthAnchor.constraint(equalToConstant: 80),
             coverImage.heightAnchor.constraint(equalTo: coverImage.widthAnchor),
             
-            vStack.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            vStack.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             vStack.leadingAnchor.constraint(equalTo: coverImage.trailingAnchor, constant: 10),
             vStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            vStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
+            vStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
         ])
     }
 }

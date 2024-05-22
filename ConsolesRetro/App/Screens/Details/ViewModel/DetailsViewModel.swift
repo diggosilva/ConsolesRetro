@@ -8,6 +8,7 @@
 import Foundation
 
 protocol DetailsViewModelProtocol {
+    func getNameConsole() -> String 
     func numberOfRowsInSection() -> Int
     func cellForRowAt(cellForRowAt indexPath: IndexPath) -> Jogo
 }
@@ -15,10 +16,15 @@ protocol DetailsViewModelProtocol {
 class DetailsViewModel: DetailsViewModelProtocol {
  
     private let feedConsole: FeedConsole
-    private let jogos = [Jogo]()
+    private var jogos: [Jogo] = []
     
     init(feedConsole: FeedConsole) {
         self.feedConsole = feedConsole
+        self.jogos = feedConsole.jogos
+    }
+    
+    func getNameConsole() -> String {
+        return feedConsole.name
     }
     
     func numberOfRowsInSection() -> Int {
