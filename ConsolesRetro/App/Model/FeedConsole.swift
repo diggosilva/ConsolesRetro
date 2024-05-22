@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct FeedConsole: Codable {
+struct FeedConsole {
     let name: String
     let image: String
     let jogos: [Jogo]
 }
 
-struct Jogo: Codable {
+struct Jogo {
     let name: String
     let image: String
     let youtubeLink: String
