@@ -9,7 +9,7 @@ import UIKit
 
 class DetailsView: UIView {
     lazy var tableView: UITableView = {
-        let table = UITableView()
+        let table = UITableView(frame: .zero, style: .insetGrouped)
         table.translatesAutoresizingMaskIntoConstraints = false
         table.register(DetailsConsoleCell.self, forCellReuseIdentifier: DetailsConsoleCell.identifier)
         table.register(DetailsGameCell.self, forCellReuseIdentifier: DetailsGameCell.identifier)

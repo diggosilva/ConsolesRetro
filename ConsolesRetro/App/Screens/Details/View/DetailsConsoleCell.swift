@@ -68,6 +68,7 @@ class DetailsConsoleCell: UITableViewCell {
     }
     
     private func setHierarchy () {
+        backgroundColor = .systemGreen.withAlphaComponent(0.2)
         addSubview(consoleImage)
         addSubview(nameLabel)
         addSubview(descriptionLabel)

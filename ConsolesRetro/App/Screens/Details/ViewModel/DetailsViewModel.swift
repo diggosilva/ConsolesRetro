@@ -25,6 +25,7 @@ class DetailsViewModel: DetailsViewModelProtocol {
     init(console: FeedConsole) {
         self.console = console
         self.cells = console.consoles.compactMap({ CellType.console($0) })
+        self.cells.append(contentsOf: console.consoles[0].games.compactMap({ CellType.game($0) }))
     }
     
     func getNameConsole() -> String {

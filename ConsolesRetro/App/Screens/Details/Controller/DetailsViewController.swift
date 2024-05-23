@@ -59,9 +59,9 @@ class DetailsViewController: UIViewController {
             let consoleCell = tableView.dequeueReusableCell(withIdentifier: DetailsConsoleCell.identifier, for: indexPath) as? DetailsConsoleCell
             consoleCell?.configure(console: console)
             return consoleCell
-        case .game(let jogo):
+        case .game(let game):
             let gameCell = tableView.dequeueReusableCell(withIdentifier: DetailsGameCell.identifier, for: indexPath) as? DetailsGameCell
-            gameCell?.configure(jogo: jogo)
+            gameCell?.configure(game: game)
             return gameCell
         }
     }

@@ -55,10 +55,10 @@ class DetailsGameCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(jogo: Game) {
-        coverImage.sd_setImage(with: jogo.imageUrl)
-        nameLabel.text = jogo.name
-        descriptionLabel.text = jogo.description
+    func configure(game: Game) {
+        coverImage.sd_setImage(with: game.imageUrl)
+        nameLabel.text = game.name
+        descriptionLabel.text = game.description
     }
     
     private func setupView() {

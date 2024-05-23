@@ -24,7 +24,6 @@
 		9222CA072BFCE9C200040C15 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9222CA062BFCE9C200040C15 /* FeedViewController.swift */; };
 		9222CA0C2BFCE9C300040C15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9222CA0B2BFCE9C300040C15 /* Assets.xcassets */; };
 		9222CA0F2BFCE9C300040C15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9222CA0D2BFCE9C300040C15 /* LaunchScreen.storyboard */; };
-		92A8776B2BFE8751005E6ABA /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A8776A2BFE8751005E6ABA /* Section.swift */; };
 		92A8776D2BFE96B3005E6ABA /* DetailsConsoleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A8776C2BFE96B3005E6ABA /* DetailsConsoleCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +47,6 @@
 		9222CA0B2BFCE9C300040C15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9222CA0E2BFCE9C300040C15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9222CA102BFCE9C300040C15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		92A8776A2BFE8751005E6ABA /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		92A8776C2BFE96B3005E6ABA /* DetailsConsoleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsConsoleCell.swift; sourceTree = "<group>"; };
 		C15BD7D6E5E77BC624F6478C /* Pods_ConsolesRetro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConsolesRetro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD64FC56E5B77594E551E099 /* Pods-ConsolesRetro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConsolesRetro.debug.xcconfig"; path = "Target Support Files/Pods-ConsolesRetro/Pods-ConsolesRetro.debug.xcconfig"; sourceTree = "<group>"; };
@@ -144,7 +142,6 @@
 			children = (
 				920F628F2BFD00D80011B50B /* ConsolesResponse.swift */,
 				920F62912BFD027F0011B50B /* FeedConsole.swift */,
-				92A8776A2BFE8751005E6ABA /* Section.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -353,7 +350,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92A8776B2BFE8751005E6ABA /* Section.swift in Sources */,
 				920F62A92BFD5F510011B50B /* DetailsGameCell.swift in Sources */,
 				920F628A2BFCECD20011B50B /* FeedViewModel.swift in Sources */,
 				920F629C2BFD17560011B50B /* FeedCell.swift in Sources */,
