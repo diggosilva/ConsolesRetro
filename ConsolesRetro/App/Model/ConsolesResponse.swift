@@ -11,12 +11,12 @@ struct ConsolesResponse: Codable {
     let consoles: [Console]
     
     struct Console: Codable {
-        let name: String
+        let name, description: String
         let image: String
-        let jogos: [Jogo]
+        let games: [Game]
     }
     
-    struct Jogo: Codable {
+    struct Game: Codable {
         let name: String
         let image: String
         let youtubeLink: String

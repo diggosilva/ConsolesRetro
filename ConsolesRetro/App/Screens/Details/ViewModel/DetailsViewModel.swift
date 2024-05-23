@@ -9,29 +9,43 @@ import Foundation
 
 protocol DetailsViewModelProtocol {
     func getNameConsole() -> String 
-    func numberOfRowsInSection() -> Int
-    func cellForRowAt(cellForRowAt indexPath: IndexPath) -> Jogo
+    func numberOfSection() -> Int
+    func numberOfRowsInSection(numberOfRowsInSection section: Int) -> Int
+    func cellTypeFor(indexPath: IndexPath) -> CellType
+    func tableView(titleForHeaderInSection section: Int) -> String?
 }
 
 class DetailsViewModel: DetailsViewModelProtocol {
- 
-    private let feedConsole: FeedConsole
-    private var jogos: [Jogo] = []
+    private let console: FeedConsole
+    private var sections: [Section] = []
     
-    init(feedConsole: FeedConsole) {
-        self.feedConsole = feedConsole
-        self.jogos = feedConsole.jogos
+    init(console: FeedConsole) {
+        self.console = console
+        let consoleSection = Section(title: .consoles, cells: console.consoles.compactMap({ CellType.console($0) }))
+        let gameSection = Section(title: .games, cells: console.consoles[0].games.compactMap({ CellType.game($0) }))
+        sections.append(consoleSection)
+        sections.append(gameSection)
     }
     
     func getNameConsole() -> String {
-        return feedConsole.name
+        return "Jogos de \(console.consoles[0].name)"
     }
     
-    func numberOfRowsInSection() -> Int {
-        return jogos.count
+    func numberOfSection() -> Int {
+        return sections.count
     }
     
-    func cellForRowAt(cellForRowAt indexPath: IndexPath) -> Jogo {
-        return jogos[indexPath.row]
+    func numberOfRowsInSection(numberOfRowsInSection section: Int) -> Int {
+        return sections[section].cells.count
+    }
+    
+    func cellTypeFor(indexPath: IndexPath) -> CellType {
+        let section = sections[indexPath.section]
+        let cell = section.cells[indexPath.row]
+        return cell
+    }
+    
+    func tableView(titleForHeaderInSection section: Int) -> String? {
+        return "\(sections[section].title)".capitalized
     }
 }

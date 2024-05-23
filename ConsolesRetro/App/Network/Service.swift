@@ -16,7 +16,7 @@ class Service: ServiceProtocol {
     var dataTask: URLSessionDataTask?
     
     func getConsoles(onSuccess: @escaping([FeedConsole]) -> Void, onError: @escaping(Error) -> Void) {
-        guard let url = URL(string: "https://run.mocky.io/v3/bc6221bb-bfe9-4264-b503-4e68e542a037") else { return }
+        guard let url = URL(string: "https://run.mocky.io/v3/0be56a07-3561-43f2-8758-39b6274c240e") else { return }
         
         dataTask = URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
             DispatchQueue.main.async {
@@ -29,22 +29,18 @@ class Service: ServiceProtocol {
                     var feedConsole: [FeedConsole] = []
                     
                     for console in consolesResponse.consoles {
-                        var feedJogos: [Jogo] = []
+                        var feedJogos: [Game] = []
                         
-                        for jogos in console.jogos {
-                            feedJogos.append(Jogo(
+                        for jogos in console.games {
+                            feedJogos.append(Game(
                                 name: jogos.name,
                                 image: jogos.image,
                                 youtubeLink: jogos.youtubeLink,
                                 description: jogos.description))
                         }
                         
-                        let feedConsoleInstance = FeedConsole(name: console.name, image: console.image, jogos: feedJogos)
+                        let feedConsoleInstance = FeedConsole(consoles: [Console(name: console.name, image: console.image, games: feedJogos)])
                         feedConsole.append(feedConsoleInstance)
-                    }
-                    
-                    feedConsole = feedConsole.sorted { (console1, console2) -> Bool in
-                        console1.name.caseInsensitiveCompare(console2.name) == .orderedAscending
                     }
                     onSuccess(feedConsole)
                     print("DEBUG: Imagens dos CONSOLES.. \(feedConsole)")

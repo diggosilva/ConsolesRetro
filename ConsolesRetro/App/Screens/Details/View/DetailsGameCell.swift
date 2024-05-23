@@ -8,8 +8,8 @@
 import UIKit
 import SDWebImage
 
-class DetailsCell: UITableViewCell {
-    static let identifier = "DetailsCell"
+class DetailsGameCell: UITableViewCell {
+    static let identifier = "DetailsGameCell"
     
     lazy var coverImage: UIImageView = {
         let image = UIImageView()
@@ -55,7 +55,7 @@ class DetailsCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(jogo: Jogo) {
+    func configure(jogo: Game) {
         guard let url = URL(string: jogo.image) else { return }
         coverImage.sd_setImage(with: url)
         nameLabel.text = jogo.name

@@ -39,9 +39,9 @@ class FeedCell: UITableViewCell {
     }
     
     func configure(feedConsole: FeedConsole) {
-        guard let url = URL(string: feedConsole.image) else { return }
+        guard let url = URL(string: feedConsole.consoles[0].image) else { return }
         consoleImage.sd_setImage(with: url)
-        nameLabel.text = feedConsole.name
+        nameLabel.text = feedConsole.consoles[0].name
     }
     
     private func setupView() {

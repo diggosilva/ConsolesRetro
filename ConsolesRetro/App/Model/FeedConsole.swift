@@ -8,12 +8,16 @@
 import Foundation
 
 struct FeedConsole {
-    let name: String
-    let image: String
-    let jogos: [Jogo]
+    let consoles: [Console]
 }
 
-struct Jogo {
+struct Console {
+    let name: String
+    let image: String
+    let games: [Game]
+}
+
+struct Game {
     let name: String
     let image: String
     let youtubeLink: String

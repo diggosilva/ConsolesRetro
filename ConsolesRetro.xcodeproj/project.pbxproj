@@ -18,12 +18,14 @@
 		920F62A32BFD54DE0011B50B /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920F62A22BFD54DE0011B50B /* DetailsView.swift */; };
 		920F62A52BFD55940011B50B /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920F62A42BFD55940011B50B /* DetailsViewController.swift */; };
 		920F62A72BFD5BD30011B50B /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920F62A62BFD5BD30011B50B /* DetailsViewModel.swift */; };
-		920F62A92BFD5F510011B50B /* DetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920F62A82BFD5F510011B50B /* DetailsCell.swift */; };
+		920F62A92BFD5F510011B50B /* DetailsGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920F62A82BFD5F510011B50B /* DetailsGameCell.swift */; };
 		9222CA032BFCE9C200040C15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9222CA022BFCE9C200040C15 /* AppDelegate.swift */; };
 		9222CA052BFCE9C200040C15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9222CA042BFCE9C200040C15 /* SceneDelegate.swift */; };
 		9222CA072BFCE9C200040C15 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9222CA062BFCE9C200040C15 /* FeedViewController.swift */; };
 		9222CA0C2BFCE9C300040C15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9222CA0B2BFCE9C300040C15 /* Assets.xcassets */; };
 		9222CA0F2BFCE9C300040C15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9222CA0D2BFCE9C300040C15 /* LaunchScreen.storyboard */; };
+		92A8776B2BFE8751005E6ABA /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A8776A2BFE8751005E6ABA /* Section.swift */; };
+		92A8776D2BFE96B3005E6ABA /* DetailsConsoleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A8776C2BFE96B3005E6ABA /* DetailsConsoleCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +40,7 @@
 		920F62A22BFD54DE0011B50B /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		920F62A42BFD55940011B50B /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		920F62A62BFD5BD30011B50B /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
-		920F62A82BFD5F510011B50B /* DetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCell.swift; sourceTree = "<group>"; };
+		920F62A82BFD5F510011B50B /* DetailsGameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsGameCell.swift; sourceTree = "<group>"; };
 		9222C9FF2BFCE9C200040C15 /* ConsolesRetro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConsolesRetro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9222CA022BFCE9C200040C15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9222CA042BFCE9C200040C15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +48,8 @@
 		9222CA0B2BFCE9C300040C15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9222CA0E2BFCE9C300040C15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9222CA102BFCE9C300040C15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92A8776A2BFE8751005E6ABA /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		92A8776C2BFE96B3005E6ABA /* DetailsConsoleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsConsoleCell.swift; sourceTree = "<group>"; };
 		C15BD7D6E5E77BC624F6478C /* Pods_ConsolesRetro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConsolesRetro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD64FC56E5B77594E551E099 /* Pods-ConsolesRetro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConsolesRetro.debug.xcconfig"; path = "Target Support Files/Pods-ConsolesRetro/Pods-ConsolesRetro.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +144,7 @@
 			children = (
 				920F628F2BFD00D80011B50B /* ConsolesResponse.swift */,
 				920F62912BFD027F0011B50B /* FeedConsole.swift */,
+				92A8776A2BFE8751005E6ABA /* Section.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,7 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				920F62A22BFD54DE0011B50B /* DetailsView.swift */,
-				920F62A82BFD5F510011B50B /* DetailsCell.swift */,
+				92A8776C2BFE96B3005E6ABA /* DetailsConsoleCell.swift */,
+				920F62A82BFD5F510011B50B /* DetailsGameCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -347,7 +353,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				920F62A92BFD5F510011B50B /* DetailsCell.swift in Sources */,
+				92A8776B2BFE8751005E6ABA /* Section.swift in Sources */,
+				920F62A92BFD5F510011B50B /* DetailsGameCell.swift in Sources */,
 				920F628A2BFCECD20011B50B /* FeedViewModel.swift in Sources */,
 				920F629C2BFD17560011B50B /* FeedCell.swift in Sources */,
 				920F628E2BFCFF000011B50B /* Service.swift in Sources */,
@@ -358,6 +365,7 @@
 				920F62A32BFD54DE0011B50B /* DetailsView.swift in Sources */,
 				920F62882BFCEC8C0011B50B /* Bindable.swift in Sources */,
 				920F628C2BFCF8340011B50B /* FeedView.swift in Sources */,
+				92A8776D2BFE96B3005E6ABA /* DetailsConsoleCell.swift in Sources */,
 				9222CA052BFCE9C200040C15 /* SceneDelegate.swift in Sources */,
 				920F62922BFD027F0011B50B /* FeedConsole.swift in Sources */,
 				920F62A52BFD55940011B50B /* DetailsViewController.swift in Sources */,

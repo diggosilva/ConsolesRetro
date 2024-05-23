@@ -11,7 +11,8 @@ class DetailsView: UIView {
     lazy var tableView: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
-        table.register(DetailsCell.self, forCellReuseIdentifier: DetailsCell.identifier)
+        table.register(DetailsConsoleCell.self, forCellReuseIdentifier: DetailsConsoleCell.identifier)
+        table.register(DetailsGameCell.self, forCellReuseIdentifier: DetailsGameCell.identifier)
         table.separatorInset = .init(top: 0, left: 0, bottom: 0, right: 0)
         table.backgroundColor = .secondarySystemFill
         return table

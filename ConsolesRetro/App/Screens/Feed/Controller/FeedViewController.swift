@@ -20,7 +20,7 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavBar()
-        setDelegatesAndDataSources()
+        setDelegatesAndDataSource()
         handleStates()
         viewModel.loadDataConsoles()
     }
@@ -30,7 +30,7 @@ class FeedViewController: UIViewController {
         view.backgroundColor = .systemBackground
     }
     
-    func setDelegatesAndDataSources() {
+    func setDelegatesAndDataSource() {
         feedView.tableView.delegate = self
         feedView.tableView.dataSource = self
     }

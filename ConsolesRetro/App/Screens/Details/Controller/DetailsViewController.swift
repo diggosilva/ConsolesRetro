@@ -14,7 +14,7 @@ class DetailsViewController: UIViewController {
     let viewModel: DetailsViewModelProtocol
     
     init(feedConsole: FeedConsole) {
-        self.viewModel = DetailsViewModel(feedConsole: feedConsole)
+        self.viewModel = DetailsViewModel(console: feedConsole)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -30,15 +30,15 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavBar()
-        setDelegatesAndDataSources()
+        setDelegatesAndDataSource()
     }
     
-    func setNavBar() {
-        title = "Jogos de \(viewModel.getNameConsole())"
+    private func setNavBar() {
+        title = viewModel.getNameConsole()
         view.backgroundColor = .systemBackground
     }
     
-    func setDelegatesAndDataSources() {
+    private func setDelegatesAndDataSource() {
         detailsView.tableView.delegate = self
         detailsView.tableView.dataSource = self
     }
@@ -50,21 +50,42 @@ class DetailsViewController: UIViewController {
         let vc = SFSafariViewController(url: url, configuration: config)
         present(vc, animated: true)
     }
+    
+    private func getCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell? {
+        let cellType = viewModel.cellTypeFor(indexPath: indexPath)
+        
+        switch cellType {
+        case .console(let console):
+            let consoleCell = tableView.dequeueReusableCell(withIdentifier: DetailsConsoleCell.identifier, for: indexPath) as? DetailsConsoleCell
+            consoleCell?.configure(console: console)
+            return consoleCell
+        case .game(let jogo):
+            let gameCell = tableView.dequeueReusableCell(withIdentifier: DetailsGameCell.identifier, for: indexPath) as? DetailsGameCell
+            gameCell?.configure(jogo: jogo)
+            return gameCell
+        }
+    }
 }
 
 extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRowsInSection()
+        return viewModel.numberOfRowsInSection(numberOfRowsInSection: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailsCell.identifier, for: indexPath) as? DetailsCell else { return UITableViewCell() }
-        cell.configure(jogo: viewModel.cellForRowAt(cellForRowAt: indexPath))
-        return cell
+        return getCell(tableView: tableView, indexPath: indexPath) ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = viewModel.cellForRowAt(cellForRowAt: indexPath)
-        showTitleScreenVideo(url: cell.youtubeLink)
+        tableView.deselectRow(at: indexPath, animated: true)
+        let cellType = viewModel.cellTypeFor(indexPath: indexPath)
+        
+        if case .game(let jogo) = cellType {
+            showTitleScreenVideo(url: jogo.youtubeLink)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return viewModel.tableView(titleForHeaderInSection: section)
     }
 }
