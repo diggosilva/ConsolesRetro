@@ -12,9 +12,18 @@ struct FeedConsole {
 }
 
 struct Console {
-    let name: String
+    let name, description: String
     let image: String
     let games: [Game]
+    
+    var imageUrl: URL? {
+        guard let url = URL(string: image) else { return nil }
+        return url
+    }
+    
+    var totalGamesLabelText: String {
+        return "Total de jogos na lista: \(games.count)"
+    }
 }
 
 struct Game {
@@ -22,6 +31,11 @@ struct Game {
     let image: String
     let youtubeLink: String
     let description: String
+    
+    var imageUrl: URL? {
+        guard let url = URL(string: image) else { return nil }
+        return url
+    }
     
     enum CodingKeys: String, CodingKey {
         case name, image

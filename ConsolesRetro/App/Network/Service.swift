@@ -16,7 +16,7 @@ class Service: ServiceProtocol {
     var dataTask: URLSessionDataTask?
     
     func getConsoles(onSuccess: @escaping([FeedConsole]) -> Void, onError: @escaping(Error) -> Void) {
-        guard let url = URL(string: "https://run.mocky.io/v3/0be56a07-3561-43f2-8758-39b6274c240e") else { return }
+        guard let url = URL(string: "https://run.mocky.io/v3/2af698da-78b1-4504-8931-b5e90ee5207a") else { return }
         
         dataTask = URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
             DispatchQueue.main.async {
@@ -39,7 +39,12 @@ class Service: ServiceProtocol {
                                 description: jogos.description))
                         }
                         
-                        let feedConsoleInstance = FeedConsole(consoles: [Console(name: console.name, image: console.image, games: feedJogos)])
+                        let feedConsoleInstance = FeedConsole(
+                            consoles: [Console(
+                                name: console.name,
+                                description: console.description,
+                                image: console.image,
+                                games: feedJogos)])
                         feedConsole.append(feedConsoleInstance)
                     }
                     onSuccess(feedConsole)

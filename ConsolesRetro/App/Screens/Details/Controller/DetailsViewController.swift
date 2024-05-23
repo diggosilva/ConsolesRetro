@@ -84,8 +84,4 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
             showTitleScreenVideo(url: jogo.youtubeLink)
         }
     }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return viewModel.tableView(titleForHeaderInSection: section)
-    }
 }

@@ -25,7 +25,7 @@ class DetailsConsoleCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: 18, weight: .semibold)
+        label.font = .preferredFont(forTextStyle: .headline)
         return label
     }()
     
@@ -33,13 +33,19 @@ class DetailsConsoleCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.text = "O Mega Drive foi lançado em 1988, uma grande inovação pra época, trazendo grande titulos do arcade para o conforto da sua casa. Tudo isso e muito mais!!!"
         label.textAlignment = .justified
         label.textColor = .secondaryLabel
-        label.font = .systemFont(ofSize: 14, weight: .medium)
+        label.font = .preferredFont(forTextStyle: .footnote)
         return label
     }()
     
+    lazy var totalGamesLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .preferredFont(forTextStyle: .footnote)
+        return label
+    }()
+        
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
@@ -50,10 +56,10 @@ class DetailsConsoleCell: UITableViewCell {
     }
     
     func configure(console: Console) {
-        guard let url = URL(string: console.image) else { return }
-        consoleImage.sd_setImage(with: url)
+        consoleImage.sd_setImage(with: console.imageUrl)
         nameLabel.text = console.name
-//        descriptionLabel.text = console.description
+        descriptionLabel.text = console.description
+        totalGamesLabel.text = console.totalGamesLabelText
     }
     
     private func setupView() {
@@ -65,6 +71,7 @@ class DetailsConsoleCell: UITableViewCell {
         addSubview(consoleImage)
         addSubview(nameLabel)
         addSubview(descriptionLabel)
+        addSubview(totalGamesLabel)
     }
     
     private func setConstraints() {
@@ -81,7 +88,11 @@ class DetailsConsoleCell: UITableViewCell {
             descriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10),
             descriptionLabel.leadingAnchor.constraint(equalTo: consoleImage.leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: consoleImage.trailingAnchor),
-            descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            
+            totalGamesLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
+            totalGamesLabel.leadingAnchor.constraint(equalTo: consoleImage.leadingAnchor),
+            totalGamesLabel.trailingAnchor.constraint(equalTo: consoleImage.trailingAnchor),
+            totalGamesLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
         ])
     }
 }

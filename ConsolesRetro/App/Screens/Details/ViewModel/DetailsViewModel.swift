@@ -7,45 +7,35 @@
 
 import Foundation
 
+enum CellType {
+    case console(Console)
+    case game(Game)
+}
+
 protocol DetailsViewModelProtocol {
     func getNameConsole() -> String 
-    func numberOfSection() -> Int
     func numberOfRowsInSection(numberOfRowsInSection section: Int) -> Int
     func cellTypeFor(indexPath: IndexPath) -> CellType
-    func tableView(titleForHeaderInSection section: Int) -> String?
 }
 
 class DetailsViewModel: DetailsViewModelProtocol {
     private let console: FeedConsole
-    private var sections: [Section] = []
+    private var cells: [CellType] = []
     
     init(console: FeedConsole) {
         self.console = console
-        let consoleSection = Section(title: .consoles, cells: console.consoles.compactMap({ CellType.console($0) }))
-        let gameSection = Section(title: .games, cells: console.consoles[0].games.compactMap({ CellType.game($0) }))
-        sections.append(consoleSection)
-        sections.append(gameSection)
+        self.cells = console.consoles.compactMap({ CellType.console($0) })
     }
     
     func getNameConsole() -> String {
         return "Jogos de \(console.consoles[0].name)"
     }
     
-    func numberOfSection() -> Int {
-        return sections.count
-    }
-    
     func numberOfRowsInSection(numberOfRowsInSection section: Int) -> Int {
-        return sections[section].cells.count
+        return cells.count
     }
     
     func cellTypeFor(indexPath: IndexPath) -> CellType {
-        let section = sections[indexPath.section]
-        let cell = section.cells[indexPath.row]
-        return cell
-    }
-    
-    func tableView(titleForHeaderInSection section: Int) -> String? {
-        return "\(sections[section].title)".capitalized
+        return cells[indexPath.row]
     }
 }

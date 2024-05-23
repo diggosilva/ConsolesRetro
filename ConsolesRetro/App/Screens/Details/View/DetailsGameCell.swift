@@ -56,8 +56,7 @@ class DetailsGameCell: UITableViewCell {
     }
     
     func configure(jogo: Game) {
-        guard let url = URL(string: jogo.image) else { return }
-        coverImage.sd_setImage(with: url)
+        coverImage.sd_setImage(with: jogo.imageUrl)
         nameLabel.text = jogo.name
         descriptionLabel.text = jogo.description
     }
