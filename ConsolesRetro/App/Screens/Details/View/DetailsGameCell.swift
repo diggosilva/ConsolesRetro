@@ -37,11 +37,21 @@ class DetailsGameCell: UITableViewCell {
         return label
     }()
     
+    lazy var seeVideoLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .right
+        label.text = "Ver vídeo"
+        label.textColor = .link
+        label.font = .preferredFont(forTextStyle: .callout)
+        return label
+    }()
+    
     lazy var vStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [nameLabel, descriptionLabel])
+        let stack = UIStackView(arrangedSubviews: [nameLabel, descriptionLabel, seeVideoLabel])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
-        stack.spacing = 10
+        stack.spacing = 5
         stack.distribution = .fill
         return stack
     }()

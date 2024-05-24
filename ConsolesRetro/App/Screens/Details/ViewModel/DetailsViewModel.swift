@@ -19,17 +19,17 @@ protocol DetailsViewModelProtocol {
 }
 
 class DetailsViewModel: DetailsViewModelProtocol {
-    private var console: [Console] = []
+    private var console: Console
     private var cells: [CellType] = []
     
-    init(console: [Console]) {
+    init(console: Console) {
         self.console = console
-        self.cells = console.compactMap({ CellType.console($0) })
-        self.cells.append(contentsOf: console[0].games.compactMap({ CellType.game($0) }))
+        self.cells.append(CellType.console(console))
+        self.cells.append(contentsOf: console.games.compactMap({ CellType.game($0) }))
     }
     
     func getNameConsole() -> String {
-        return "Jogos de \(console[0].name)"
+        return "Jogos de \(console.name)"
     }
     
     func numberOfRowsInSection(numberOfRowsInSection section: Int) -> Int {
