@@ -25,17 +25,17 @@ class FeedViewController: UIViewController {
         viewModel.loadDataConsoles()
     }
     
-    func setNavBar() {
+    private func setNavBar() {
         title = "Consoles Retro"
         view.backgroundColor = .systemBackground
     }
     
-    func setDelegatesAndDataSource() {
+    private func setDelegatesAndDataSource() {
         feedView.tableView.delegate = self
         feedView.tableView.dataSource = self
     }
     
-    func handleStates() {
+    private func handleStates() {
         viewModel.state.bind { states in
             switch states {
             case .loading:

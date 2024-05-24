@@ -20,7 +20,7 @@ enum FeedViewControllerStates {
 }
 
 class FeedViewModel {
-    var state: Bindable<FeedViewControllerStates> = Bindable(value: .loading)
+    private (set) var state: Bindable<FeedViewControllerStates> = Bindable(value: .loading)
     private var service: ServiceProtocol = Service()
     private var consolesList: [Console] = []
     
