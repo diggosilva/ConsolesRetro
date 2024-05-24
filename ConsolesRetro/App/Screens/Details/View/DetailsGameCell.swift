@@ -24,7 +24,7 @@ class DetailsGameCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 18, weight: .semibold)
+        label.font = .preferredFont(forTextStyle: .headline)
         return label
     }()
     
@@ -33,7 +33,7 @@ class DetailsGameCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.textColor = .secondaryLabel
-        label.font = .systemFont(ofSize: 14, weight: .medium)
+        label.font = .preferredFont(forTextStyle: .footnote)
         return label
     }()
     

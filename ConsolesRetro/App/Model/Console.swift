@@ -1,15 +1,11 @@
 //
-//  FeedConsole.swift
+//  Console.swift
 //  ConsolesRetro
 //
 //  Created by Diggo Silva on 21/05/24.
 //
 
 import Foundation
-
-struct FeedConsole {
-    let consoles: [Console]
-}
 
 struct Console {
     let name, description: String

@@ -9,13 +9,13 @@ import Foundation
 
 protocol ServiceProtocol {
     var dataTask: URLSessionDataTask? { get set }
-    func getConsoles(onSuccess: @escaping([FeedConsole]) -> Void, onError: @escaping(Error) -> Void)
+    func getConsoles(onSuccess: @escaping([Console]) -> Void, onError: @escaping(Error) -> Void)
 }
 
 class Service: ServiceProtocol {
     var dataTask: URLSessionDataTask?
     
-    func getConsoles(onSuccess: @escaping([FeedConsole]) -> Void, onError: @escaping(Error) -> Void) {
+    func getConsoles(onSuccess: @escaping([Console]) -> Void, onError: @escaping(Error) -> Void) {
         guard let url = URL(string: "https://run.mocky.io/v3/2af698da-78b1-4504-8931-b5e90ee5207a") else { return }
         
         dataTask = URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
@@ -26,7 +26,7 @@ class Service: ServiceProtocol {
                 
                 do {
                     let consolesResponse = try JSONDecoder().decode(ConsolesResponse.self, from: data ?? Data())
-                    var feedConsole: [FeedConsole] = []
+                    var feedConsole: [Console] = []
                     
                     for console in consolesResponse.consoles {
                         var feedJogos: [Game] = []
@@ -39,16 +39,14 @@ class Service: ServiceProtocol {
                                 description: jogos.description))
                         }
                         
-                        let feedConsoleInstance = FeedConsole(
-                            consoles: [Console(
+                        let feedConsoleInstance = Console(
                                 name: console.name,
                                 description: console.description,
                                 image: console.image,
-                                games: feedJogos)])
+                                games: feedJogos)
                         feedConsole.append(feedConsoleInstance)
                     }
                     onSuccess(feedConsole)
-                    print("DEBUG: Imagens dos CONSOLES.. \(feedConsole)")
                 } catch {
                     onError(error)
                     print("DEBUG: Erro ao decodificar CONSOLES \(error.localizedDescription)")

@@ -15,7 +15,7 @@ class FeedCell: UITableViewCell {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
-        image.backgroundColor = .systemGray5
+        image.backgroundColor = .systemGreen.withAlphaComponent(0.2)
         image.layer.cornerRadius = 10
         image.clipsToBounds = true
         return image
@@ -38,10 +38,9 @@ class FeedCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(feedConsole: FeedConsole) {
-        guard let url = URL(string: feedConsole.consoles[0].image) else { return }
-        consoleImage.sd_setImage(with: url)
-        nameLabel.text = feedConsole.consoles[0].name
+    func configure(console: Console) {
+        consoleImage.sd_setImage(with: console.imageUrl)
+        nameLabel.text = console.name
     }
     
     private func setupView() {

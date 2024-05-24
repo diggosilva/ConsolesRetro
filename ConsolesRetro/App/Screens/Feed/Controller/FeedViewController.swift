@@ -80,14 +80,14 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FeedCell.identifier, for: indexPath) as? FeedCell else { return UITableViewCell() }
-        cell.configure(feedConsole: viewModel.cellForRowAt(indexPath: indexPath))
+        cell.configure(console: viewModel.cellForRowAt(indexPath: indexPath))
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let feedConsole = viewModel.cellForRowAt(indexPath: indexPath)
-        let detailsVC = DetailsViewController(feedConsole: feedConsole)
+        let console = viewModel.cellForRowAt(indexPath: indexPath)
+        let detailsVC = DetailsViewController(console: [console])
         navigationController?.pushViewController(detailsVC, animated: true)
     }
 }
