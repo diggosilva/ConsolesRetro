@@ -13,7 +13,7 @@ class DetailsViewController: UIViewController {
     let detailsView = DetailsView()
     let viewModel: DetailsViewModelProtocol
     
-    init(console: Console) {
+    init(console: FeedConsole) {
         self.viewModel = DetailsViewModel(console: console)
         super.init(nibName: nil, bundle: nil)
     }

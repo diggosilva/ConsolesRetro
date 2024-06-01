@@ -10,7 +10,7 @@ import Foundation
 protocol FeedViewModelProtocol {
     var state: Bindable<FeedViewControllerStates> { get set }
     func numberOfRowsInSection() -> Int
-    func cellForRowAt() -> Console
+    func cellForRowAt() -> FeedConsole
 }
 
 enum FeedViewControllerStates {
@@ -22,13 +22,13 @@ enum FeedViewControllerStates {
 class FeedViewModel {
     private (set) var state: Bindable<FeedViewControllerStates> = Bindable(value: .loading)
     private var service: ServiceProtocol = Service()
-    private var consolesList: [Console] = []
+    private var consolesList: [FeedConsole] = []
     
     func numberOfRowsInSection() -> Int {
         return consolesList.count
     }
     
-    func cellForRowAt(indexPath: IndexPath) -> Console {
+    func cellForRowAt(indexPath: IndexPath) -> FeedConsole {
         return consolesList[indexPath.row]
     }
     

@@ -55,7 +55,7 @@ class DetailsConsoleCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(console: Console) {
+    func configure(console: FeedConsole) {
         consoleImage.sd_setImage(with: console.imageUrl)
         nameLabel.text = console.name
         descriptionLabel.text = console.description

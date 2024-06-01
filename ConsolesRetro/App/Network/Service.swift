@@ -9,13 +9,13 @@ import Foundation
 
 protocol ServiceProtocol {
     var dataTask: URLSessionDataTask? { get set }
-    func getConsoles(onSuccess: @escaping([Console]) -> Void, onError: @escaping(Error) -> Void)
+    func getConsoles(onSuccess: @escaping([FeedConsole]) -> Void, onError: @escaping(Error) -> Void)
 }
 
 class Service: ServiceProtocol {
     var dataTask: URLSessionDataTask?
     
-    func getConsoles(onSuccess: @escaping([Console]) -> Void, onError: @escaping(Error) -> Void) {
+    func getConsoles(onSuccess: @escaping([FeedConsole]) -> Void, onError: @escaping(Error) -> Void) {
         guard let url = URL(string: "https://run.mocky.io/v3/2af698da-78b1-4504-8931-b5e90ee5207a") else { return }
         
         dataTask = URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
@@ -26,7 +26,7 @@ class Service: ServiceProtocol {
                 
                 do {
                     let consolesResponse = try JSONDecoder().decode(ConsolesResponse.self, from: data ?? Data())
-                    var feedConsole: [Console] = []
+                    var feedConsole: [FeedConsole] = []
                     
                     for console in consolesResponse.consoles {
                         var feedJogos: [Game] = []
@@ -39,7 +39,7 @@ class Service: ServiceProtocol {
                                 description: jogos.description))
                         }
                         
-                        let feedConsoleInstance = Console(
+                        let feedConsoleInstance = FeedConsole(
                                 name: console.name,
                                 description: console.description,
                                 image: console.image,
@@ -47,6 +47,7 @@ class Service: ServiceProtocol {
                         feedConsole.append(feedConsoleInstance)
                     }
                     onSuccess(feedConsole)
+                    print("AQUIIII: \(feedConsole)")
                 } catch {
                     onError(error)
                     print("DEBUG: Erro ao decodificar CONSOLES \(error.localizedDescription)")

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Console {
+struct FeedConsole {
     let name, description: String
     let image: String
     let games: [Game]

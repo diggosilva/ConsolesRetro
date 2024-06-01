@@ -8,7 +8,7 @@
 import Foundation
 
 enum CellType {
-    case console(Console)
+    case console(FeedConsole)
     case game(Game)
 }
 
@@ -19,10 +19,10 @@ protocol DetailsViewModelProtocol {
 }
 
 class DetailsViewModel: DetailsViewModelProtocol {
-    private var console: Console
+    private var console: FeedConsole
     private var cells: [CellType] = []
     
-    init(console: Console) {
+    init(console: FeedConsole) {
         self.console = console
         self.cells.append(CellType.console(console))
         self.cells.append(contentsOf: console.games.compactMap({ CellType.game($0) }))
