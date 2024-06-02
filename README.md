@@ -40,7 +40,8 @@ A iOS application written in Swift, that lists retro consoles, when the user sel
 ## Functionalities
 - [x] List of retro consoles
 - [x] One Section showing console selected and your games
-- [x] Show video on youtube 
+- [x] Show video on youtube
+- [x] One tableView with two custom cells 
 
 ## Setup
 
