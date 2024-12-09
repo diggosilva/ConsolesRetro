@@ -8,7 +8,6 @@
 import Foundation
 
 protocol ServiceProtocol {
-    var dataTask: URLSessionDataTask? { get set }
     func getConsoles(onSuccess: @escaping([FeedConsole]) -> Void, onError: @escaping(Error) -> Void)
 }
 

@@ -10,7 +10,7 @@ import UIKit
 class FeedViewController: UIViewController {
     
     let feedView = FeedView()
-    let viewModel = FeedViewModel()
+    let viewModel = FeedViewModel(serviceProtocol: Service())
     
     override func loadView() {
         super.loadView()
