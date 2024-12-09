@@ -14,7 +14,7 @@ enum CellType {
 
 protocol DetailsViewModelProtocol {
     func getNameConsole() -> String 
-    func numberOfRowsInSection(numberOfRowsInSection section: Int) -> Int
+    func numberOfRowsInSection() -> Int
     func cellTypeFor(indexPath: IndexPath) -> CellType
 }
 
@@ -32,7 +32,7 @@ class DetailsViewModel: DetailsViewModelProtocol {
         return "Jogos de \(console.name)"
     }
     
-    func numberOfRowsInSection(numberOfRowsInSection section: Int) -> Int {
+    func numberOfRowsInSection() -> Int {
         return cells.count
     }
     
