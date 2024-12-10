@@ -33,6 +33,19 @@ final class DetailsViewModelTests: XCTestCase {
         let cellTypeForGame = sut.cellTypeFor(indexPath: IndexPath(row: 1, section: 0))
         
         XCTAssertTrue(cellTypeForConsole == .console(console))
-        
+    }
+}
+
+extension CellType: @retroactive Equatable {
+    
+  public static func == (lhs: CellType, rhs: CellType) -> Bool {
+        switch (lhs, rhs) {
+        case let (.console(lhsConsole), .console(rhsConsole)):
+          return lhsConsole.name == rhsConsole.name
+        case let (.game(lhsGame), .game(rhsGame)):
+          return lhsGame.name == rhsGame.name
+        default:
+            return false
+        }
     }
 }
