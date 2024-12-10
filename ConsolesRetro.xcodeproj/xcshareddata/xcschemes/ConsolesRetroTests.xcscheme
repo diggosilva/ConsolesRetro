@@ -19,9 +19,9 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "923E084A2D02128B00081751"
-               BuildableName = "FeedViewModelTests.xctest"
-               BlueprintName = "FeedViewModelTests"
+               BlueprintIdentifier = "92A108922D07B116004BA64E"
+               BuildableName = "ConsolesRetroTests.xctest"
+               BlueprintName = "ConsolesRetroTests"
                ReferencedContainer = "container:ConsolesRetro.xcodeproj">
             </BuildableReference>
          </TestableReference>

@@ -26,24 +26,18 @@ class MockFailure: ServiceProtocol {
 final class FeedViewModelTests: XCTestCase {
     func testWhenSuccess() {
         let sut: FeedViewModel = FeedViewModel(serviceProtocol: MockSuccess())
-        if sut.state.value == .error {
-            sut.loadDataConsoles()
-            
-            XCTAssertEqual(sut.numberOfRowsInSection(), 2)
-            
-            let firstConsole = sut.cellForRowAt(indexPath: IndexPath(row: 0, section: 0))
-            let secondConsole = sut.cellForRowAt(indexPath: IndexPath(row: 1, section: 0))
-            
-            XCTAssertEqual(firstConsole.name, "PlayStation 5")
-            XCTAssertEqual(secondConsole.name, "Xbox Series X")
-        } else {
-            sut.state.value = .error
+        sut.state.bind { state in
+            XCTAssertTrue(state == .loaded)
         }
-    }
-    
-    func testblabla() {
-        let valor = 1 == 1
-        XCTAssertTrue(valor)
+        sut.loadDataConsoles()
+        
+        XCTAssertEqual(sut.numberOfRowsInSection(), 2)
+        
+        let firstConsole = sut.cellForRowAt(indexPath: IndexPath(row: 0, section: 0))
+        let secondConsole = sut.cellForRowAt(indexPath: IndexPath(row: 1, section: 0))
+        
+        XCTAssertEqual(firstConsole.name, "PlayStation 5")
+        XCTAssertEqual(secondConsole.name, "Xbox Series X")
     }
     
     func testWhenError() {

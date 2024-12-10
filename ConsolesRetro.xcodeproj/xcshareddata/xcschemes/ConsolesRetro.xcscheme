@@ -52,6 +52,17 @@
                ReferencedContainer = "container:ConsolesRetro.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "92A108922D07B116004BA64E"
+               BuildableName = "ConsolesRetroTests.xctest"
+               BlueprintName = "ConsolesRetroTests"
+               ReferencedContainer = "container:ConsolesRetro.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
