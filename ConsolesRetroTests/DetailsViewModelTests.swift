@@ -25,13 +25,14 @@ final class DetailsViewModelTests: XCTestCase {
     }
     
     func testCellTypeFor() {
-        let console = FeedConsole(name: "Mega Drive", description: "", image: "", games: [game])
         let game = Game(name: "Quackshot", image: "", youtubeLink: "", description: "")
+        let console = FeedConsole(name: "Mega Drive", description: "", image: "", games: [game])
         let sut: DetailsViewModel = DetailsViewModel(console: console)
         
         let cellTypeForConsole = sut.cellTypeFor(indexPath: IndexPath(row: 0, section: 0))
         let cellTypeForGame = sut.cellTypeFor(indexPath: IndexPath(row: 1, section: 0))
         
         XCTAssertTrue(cellTypeForConsole == .console(console))
+        
     }
 }

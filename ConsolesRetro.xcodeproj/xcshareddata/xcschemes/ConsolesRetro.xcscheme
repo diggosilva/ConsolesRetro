@@ -15,7 +15,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9222C9FE2BFCE9C200040C15"
+               BlueprintIdentifier = "92CB6BE02D0870E800F06FC6"
                BuildableName = "ConsolesRetro.app"
                BlueprintName = "ConsolesRetro"
                ReferencedContainer = "container:ConsolesRetro.xcodeproj">
@@ -35,29 +35,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "923E084A2D02128B00081751"
-               BuildableName = "FeedViewModelTests.xctest"
-               BlueprintName = "FeedViewModelTests"
-               ReferencedContainer = "container:ConsolesRetro.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "92C38FFE2D0640F200438A9D"
-               BuildableName = "DetailsViewModelTests.xctest"
-               BlueprintName = "DetailsViewModelTests"
-               ReferencedContainer = "container:ConsolesRetro.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "92A108922D07B116004BA64E"
+               BlueprintIdentifier = "92CB6BF62D0870EA00F06FC6"
                BuildableName = "ConsolesRetroTests.xctest"
                BlueprintName = "ConsolesRetroTests"
                ReferencedContainer = "container:ConsolesRetro.xcodeproj">
@@ -79,7 +57,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9222C9FE2BFCE9C200040C15"
+            BlueprintIdentifier = "92CB6BE02D0870E800F06FC6"
             BuildableName = "ConsolesRetro.app"
             BlueprintName = "ConsolesRetro"
             ReferencedContainer = "container:ConsolesRetro.xcodeproj">
@@ -96,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9222C9FE2BFCE9C200040C15"
+            BlueprintIdentifier = "92CB6BE02D0870E800F06FC6"
             BuildableName = "ConsolesRetro.app"
             BlueprintName = "ConsolesRetro"
             ReferencedContainer = "container:ConsolesRetro.xcodeproj">

@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  ConsolesRetro
 //
-//  Created by Diggo Silva on 21/05/24.
+//  Created by Diggo Silva on 10/12/24.
 //
 
 import UIKit
@@ -46,7 +46,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
-
